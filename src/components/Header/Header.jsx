@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import logo from '../../images/Logo.svg'
 import './Header.css';
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Header = () => {
     return (
@@ -10,10 +11,10 @@ const Header = () => {
                 <img src={logo} alt="" />
             </div>
             <div className='header-link'>
-                <Link to="/">Shop</Link>
-                <Link to="/orders">Order Review</Link>
-                <Link to="/inventory">Manage Inventory</Link>
-                <Link to="/login">Login</Link>
+                <ActiveLink to="/">Shop</ActiveLink>
+                <ActiveLink to="/orders">Order Review</ActiveLink>
+                <ActiveLink to="/inventory">Manage Inventory</ActiveLink>
+                <ActiveLink to="/login">Login</ActiveLink>
             </div>
         </div>
     );
