@@ -3,7 +3,7 @@ import './Summery.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-const Summery = ({ carts }) => {
+const Summery = ({ carts, deleteSavedCart, children }) => {
     // console.log(carts);
     let totalPrice = 0;
     let totalShippingCharge = 0;
@@ -31,10 +31,11 @@ const Summery = ({ carts }) => {
                 <h3>Total Shipping Charge: ${totalShippingCharge}</h3>
                 <h3>Tex:  ${tex.toFixed(2)}</h3>
                 <h2>Grand Total: ${grandTotal.toFixed(2)}</h2>
-                <button className='clear-cart-btn'>
+                <button onClick={deleteSavedCart} className='clear-cart-btn'>
                     <span style={{ marginRight: '100px' }}>Clear Cart</span>
                     <FontAwesomeIcon icon={faTrash} />
                 </button>
+                {children}
             </div>
 
         </div>

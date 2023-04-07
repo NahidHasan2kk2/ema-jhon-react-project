@@ -1,0 +1,14 @@
+.checkout-btn {
+    margin-top: 15px;
+    width: 90%;
+    height: 40px;
+    background: #f4a52f;
+    border-radius: 4px;
+    color: #171615;
+    font-size: 14px;
+}
+
+.checkout-btn:hover {
+    background-color: #3b2301;
+    color: aliceblue;
+}

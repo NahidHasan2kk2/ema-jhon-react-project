@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import './Shop.css';
 import Summery from '../Summery/Summery';
-import { addToDb, getShoppingCart } from '../../utitlitice/fackdb';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utitlitice/fackdb';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -35,7 +38,10 @@ const Shop = () => {
 
 
     }, [products])
-
+    const deleteSavedCart = () => {
+        SetCarts([]);
+        deleteShoppingCart();
+    }
 
     const handleAddToCart = (product) => {
         const savedCart = [...carts, product];
@@ -63,7 +69,14 @@ const Shop = () => {
                 <Summery
 
                     carts={carts}
-                ></Summery>
+                    deleteSavedCart={deleteSavedCart}
+                >
+
+                    <Link to="/orders"><button className='review-order-btn'>
+                        <span style={{ marginRight: '70px' }}>Review Order</span>
+                        <FontAwesomeIcon icon={faArrowRight} />
+                    </button></Link>
+                </Summery>
             </div>
         </div>
     );

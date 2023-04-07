@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Summery from '../Summery/Summery';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './Orders.css';
 import Review from '../Review/Review';
-import { removeFromDb } from '../../utitlitice/fackdb';
+import { deleteShoppingCart, removeFromDb } from '../../utitlitice/fackdb';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons'
 
 const Orders = () => {
     const products = useLoaderData();
@@ -14,6 +16,10 @@ const Orders = () => {
         setCart(savedCart);
         removeFromDb(id);
 
+    }
+    const deleteSavedCart = () => {
+        setCart([]);
+        deleteShoppingCart();
     }
     return (
         <div className='shop-container'>
@@ -31,8 +37,14 @@ const Orders = () => {
             <div className='cart-container'>
                 <Summery
                     carts={cart}
+                    deleteSavedCart={deleteSavedCart}
+                >
+                    <Link to="/checkout"><button className='checkout-btn'>
 
-                ></Summery>
+                        <span style={{ marginRight: '50px' }}> Proceed Checkout</span>
+                        <FontAwesomeIcon icon={faCheckSquare} />
+                    </button></Link>
+                </Summery>
             </div>
 
         </div>
