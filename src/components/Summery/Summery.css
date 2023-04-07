@@ -1,9 +1,32 @@
 .summery-content {
+    height: 500px;
     background-color: #FFE0B3;
     position: sticky;
     top: 0;
+    padding: 5px 10px;
+    margin-top: 50px;
+    border-radius: 8px;
+
 }
 
 .summery-info {
     margin-left: 20px;
+}
+
+.clear-cart-btn {
+    width: 90%;
+    height: 40px;
+    background: #FF3030;
+    border-radius: 4px;
+    color: #FFE0B3;
+    font-size: 14px;
+}
+
+.clear-cart-btn:hover {
+    background: #db0202;
+}
+
+.order-summery {
+    margin-left: 5px;
+    color: brown;
 }

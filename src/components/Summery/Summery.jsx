@@ -1,5 +1,7 @@
 import React from 'react';
 import './Summery.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 const Summery = ({ carts }) => {
     // console.log(carts);
@@ -22,13 +24,17 @@ const Summery = ({ carts }) => {
 
     return (
         <div className='summery-content'>
-            <h1>Orders Summery</h1>
+            <h1 className='order-summery'>Orders Summery</h1>
             <div className='summery-info'>
                 <h3>Select items: {quantity} </h3>
                 <h3>Total Price: ${totalPrice}</h3>
                 <h3>Total Shipping Charge: ${totalShippingCharge}</h3>
                 <h3>Tex:  ${tex.toFixed(2)}</h3>
                 <h2>Grand Total: ${grandTotal.toFixed(2)}</h2>
+                <button className='clear-cart-btn'>
+                    <span style={{ marginRight: '100px' }}>Clear Cart</span>
+                    <FontAwesomeIcon icon={faTrash} />
+                </button>
             </div>
 
         </div>

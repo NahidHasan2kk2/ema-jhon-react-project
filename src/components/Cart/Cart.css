@@ -20,6 +20,11 @@
     height: 48px;
     position: absolute;
     bottom: 0;
+    border: 0;
     border-radius: 2px 2px 8px 8px;
     background-color: #FFE0B3;
+}
+
+.cart-btn:hover {
+    background-color: #efb35a;
 }

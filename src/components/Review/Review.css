@@ -47,3 +47,7 @@ h5 {
     color: #EB5757;
     font-size: 20px;
 }
+
+.delete-btn:hover {
+    background: rgba(245, 4, 4, 0.3);
+}

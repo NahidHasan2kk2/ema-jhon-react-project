@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Summery from '../Summery/Summery';
 import { useLoaderData } from 'react-router-dom';
 import './Orders.css';
 import Review from '../Review/Review';
+import { removeFromDb } from '../../utitlitice/fackdb';
 
 const Orders = () => {
     const products = useLoaderData();
+    const [cart, setCart] = useState(products);
     // console.log(products);
+    const handleRemoveItem = (id) => {
+        const savedCart = cart.filter(ct => ct.id !== id)
+        setCart(savedCart);
+        removeFromDb(id);
+
+    }
     return (
         <div className='shop-container'>
             <div className='review-container'>
                 {
-                    products.map(product => <Review
+                    cart.map(product => <Review
                         key={product.id}
                         product={product}
+                        handleRemoveItem={handleRemoveItem}
 
                     ></Review>)
                 }
@@ -21,7 +30,8 @@ const Orders = () => {
             </div>
             <div className='cart-container'>
                 <Summery
-                    carts={products}
+                    carts={cart}
+
                 ></Summery>
             </div>
 
