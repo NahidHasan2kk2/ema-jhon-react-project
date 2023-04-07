@@ -7,7 +7,7 @@ const Summery = ({ carts }) => {
     let totalShippingCharge = 0;
     let quantity = 0;
     for (const cart of carts) {
-        console.log(cart);
+        // console.log(cart);
         // if (cart.quantity) {
         //     cart.quantity = 1
         // }
